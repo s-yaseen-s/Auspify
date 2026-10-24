@@ -1,0 +1,24 @@
+﻿# Operating System Files
+.DS_Store
+Thumbs.db
+
+# Environment & Secret Files
+.env
+*.env.local
+
+# Node.js / Web Dependencies
+node_modules/
+dist/
+build/
+
+# Python / Virtual Environments
+__pycache__/
+*.pyc
+.venv/
+venv/
+env/
+
+# IDEs & Code Editors
+.vscode/
+.idea/
+*.swp
