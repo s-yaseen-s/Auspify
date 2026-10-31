@@ -5,8 +5,8 @@ Repository containing projects for the 4-week Software Development Internship at
 ## Project Index
 
 | Task | Project Title | Tech Stack | Status |
-|---|---|---|---|
-| Task 1 | Student Management System | TBD | Completed |
+| :--- | :--- | :--- | :--- |
+| Task 1 | Student Management System | Node.js / Express / SQLite | Completed |
 | Task 2 | Library Management System | TBD | Pending |
 | Task 3 | Inventory Management System | TBD | Pending |
 | Task 4 | Employee Management System | TBD | Pending |
