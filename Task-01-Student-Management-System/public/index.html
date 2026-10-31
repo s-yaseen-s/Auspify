@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management System | Auspify Task 1</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Student Management System</h1>
+            <p>Task 01 - Auspify Software Development Internship</p>
+        </header>
+
+        <main class="content-grid">
+            <!-- Form Section -->
+            <section class="card form-card">
+                <h2 id="form-title">Add New Student</h2>
+                <form id="student-form">
+                    <input type="hidden" id="student-id">
+                    
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" required placeholder="e.g. John Doe">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" required placeholder="e.g. john@example.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="course">Course / Major</label>
+                        <input type="text" id="course" required placeholder="e.g. Computer Science">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="grade">Grade / GPA</label>
+                        <input type="text" id="grade" required placeholder="e.g. A+ or 3.8">
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" id="submit-btn" class="btn btn-primary">Add Student</button>
+                        <button type="button" id="cancel-btn" class="btn btn-secondary" style="display:none;">Cancel Edit</button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- Table Section -->
+            <section class="card table-card">
+                <div class="table-header">
+                    <h2>Student Records</h2>
+                    <input type="text" id="search-input" placeholder="Search by name or course...">
+                </div>
+
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Course</th>
+                                <th>Grade</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="student-table-body">
+                            <!-- Dynamic records injected here -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -7,18 +7,15 @@ const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Middleware
 app.use(cors());
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Initialize SQLite Database
 const db = new sqlite3.Database('./students.db', (err) => {
     if (err) console.error('Database connection error:', err.message);
     else console.log('Connected to SQLite database.');
 });
 
-// Create Students Table
 db.run(`
     CREATE TABLE IF NOT EXISTS students (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -29,9 +26,6 @@ db.run(`
     )
 `);
 
-// API Routes
-
-// 1. Get all students (Read)
 app.get('/api/students', (req, res) => {
     db.all('SELECT * FROM students ORDER BY id DESC', [], (err, rows) => {
         if (err) return res.status(500).json({ error: err.message });
@@ -39,7 +33,6 @@ app.get('/api/students', (req, res) => {
     });
 });
 
-// 2. Add new student (Create)
 app.post('/api/students', (req, res) => {
     const { name, email, course, grade } = req.body;
     if (!name || !email || !course || !grade) {
@@ -56,7 +49,6 @@ app.post('/api/students', (req, res) => {
     );
 });
 
-// 3. Update student record (Update)
 app.put('/api/students/:id', (req, res) => {
     const { name, email, course, grade } = req.body;
     const { id } = req.params;
@@ -71,7 +63,6 @@ app.put('/api/students/:id', (req, res) => {
     );
 });
 
-// 4. Delete student record (Delete)
 app.delete('/api/students/:id', (req, res) => {
     const { id } = req.params;
     db.run('DELETE FROM students WHERE id = ?', [id], function (err) {
@@ -80,7 +71,6 @@ app.delete('/api/students/:id', (req, res) => {
     });
 });
 
-// Start Server
 app.listen(PORT, () => {
     console.log(`Server running at http://localhost:${PORT}`);
 });
