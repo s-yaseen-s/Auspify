@@ -1,4 +1,3 @@
-Set-Content -Path "Task-01-Student-Management-System/README.md" -Value @"
 # Task 01: Student Management System
 
 A full-stack web application built for managing student records with persistent storage, full CRUD operations, and real-time search capabilities.
@@ -46,4 +45,3 @@ A full-stack web application built for managing student records with persistent 
 
 4. Open your browser and go to:
    http://localhost:3000
-"@ -Encoding UTF8; git add Task-01-Student-Management-System/README.md; git commit -m "Added dedicated README documentation for Task 1"; git push origin main
