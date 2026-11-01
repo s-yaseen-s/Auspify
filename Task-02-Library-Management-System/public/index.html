@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Library Management System</h1>
+            <p>Task 02 - Auspify Software Development Internship</p>
+        </header>
+
+        <main class="main-layout">
+            <!-- Form Section -->
+            <section class="card form-card">
+                <h2>Add New Book</h2>
+                <form id="bookForm">
+                    <div class="form-group">
+                        <label for="title">Book Title</label>
+                        <input type="text" id="title" placeholder="e.g. Clean Code" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="author">Author</label>
+                        <input type="text" id="author" placeholder="e.g. Robert C. Martin" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="isbn">ISBN</label>
+                        <input type="text" id="isbn" placeholder="e.g. 9780132350884" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="genre">Genre / Category</label>
+                        <input type="text" id="genre" placeholder="e.g. Computer Science" required>
+                    </div>
+
+                    <button type="submit" id="submitBtn">Add Book</button>
+                </form>
+            </section>
+
+            <!-- Catalog Table Section -->
+            <section class="card table-card">
+                <div class="table-header">
+                    <h2>Library Catalog</h2>
+                    <input type="text" id="searchInput" placeholder="Search by title, author, or genre...">
+                </div>
+
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Title</th>
+                                <th>Author</th>
+                                <th>ISBN</th>
+                                <th>Genre</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="booksTableBody">
+                            <!-- Rows loaded dynamically from public/script.js -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
