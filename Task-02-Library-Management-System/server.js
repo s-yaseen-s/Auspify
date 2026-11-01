@@ -72,6 +72,42 @@ app.post('/api/books', (req, res) => {
     });
 });
 
+app.put('/api/books/:id/status', (req, res) => {
+    const { id } = req.params;
+    const { status } = req.body;
+
+    if (!status) {
+        return res.status(400).json({ error: 'Status field is required.' });
+    }
+
+    const sql = `UPDATE books SET status = ? WHERE id = ?`;
+    
+    db.run(sql, [status, id], function (err) {
+        if (err) {
+            return res.status(500).json({ error: err.message });
+        }
+        if (this.changes === 0) {
+            return res.status(404).json({ error: 'Book not found.' });
+        }
+        res.json({ message: 'Book status updated successfully', id, status });
+    });
+});
+
+app.delete('/api/books/:id', (req, res) => {
+    const { id } = req.params;
+    const sql = `DELETE FROM books WHERE id = ?`;
+
+    db.run(sql, id, function (err) {
+        if (err) {
+            return res.status(500).json({ error: err.message });
+        }
+        if (this.changes === 0) {
+            return res.status(404).json({ error: 'Book not found.' });
+        }
+        res.json({ message: 'Book deleted successfully', id });
+    });
+});
+
 app.listen(PORT, () => {
     console.log(`Server running at http://localhost:${PORT}`);
 });
