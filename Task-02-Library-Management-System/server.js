@@ -35,7 +35,42 @@ db.serialize(() => {
     });
 });
 
+app.get('/api/books', (req, res) => {
+    const sql = 'SELECT * FROM books ORDER BY id DESC';
+    
+    db.all(sql, [], (err, rows) => {
+        if (err) {
+            return res.status(500).json({ error: err.message });
+        }
+        res.json(rows);
+    });
+});
 
+app.post('/api/books', (req, res) => {
+    const { title, author, isbn, genre } = req.body;
+
+    if (!title || !author || !isbn || !genre) {
+        return res.status(400).json({ error: 'All fields (title, author, isbn, genre) are required.' });
+    }
+
+    const sql = `INSERT INTO books (title, author, isbn, genre) VALUES (?, ?, ?, ?)`;
+    const params = [title, author, isbn, genre];
+
+    db.run(sql, params, function (err) {
+        if (err) {
+            return res.status(400).json({ error: err.message });
+        }
+
+        res.status(201).json({
+            id: this.lastID,
+            title,
+            author,
+            isbn,
+            genre,
+            status: 'available'
+        });
+    });
+});
 
 app.listen(PORT, () => {
     console.log(`Server running at http://localhost:${PORT}`);
