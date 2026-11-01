@@ -85,10 +85,3 @@ node server.js
 Open your browser and navigate to `http://localhost:3000`
 
 ```
-
-<ElicitationsGroup>
-- Ready to commit and push Task 2 to your GitHub repository?
-- Would you like help testing any of the endpoints before submitting?
-</ElicitationsGroup>
-
-```
