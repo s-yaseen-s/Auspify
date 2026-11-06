@@ -1,5 +1,3 @@
-Here is the complete `README.md` file in a single copy-ready block:
-
 ```markdown
 # Online Examination System (Task 5)
 
