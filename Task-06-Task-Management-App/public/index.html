@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Management App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <h1>Task Management App</h1>
+            <p>Organize, track, and complete your projects efficiently.</p>
+        </header>
+
+        <main class="main-layout">
+            <!-- Add Task Form -->
+            <section class="card form-card">
+                <h2>Create New Task</h2>
+                <form id="task-form">
+                    <div class="form-group">
+                        <label for="title">Title *</label>
+                        <input type="text" id="title" placeholder="e.g. Implement REST API" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea id="description" rows="3" placeholder="Task details..."></textarea>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="priority">Priority</label>
+                            <select id="priority">
+                                <option value="Low">Low</option>
+                                <option value="Medium" selected>Medium</option>
+                                <option value="High">High</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="due-date">Due Date</label>
+                            <input type="date" id="due-date">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Add Task</button>
+                </form>
+            </section>
+
+            <!-- Task Display & Filters -->
+            <section class="tasks-section">
+                <div class="filter-bar card">
+                    <div class="filter-group">
+                        <label>Status Filter:</label>
+                        <select id="filter-status">
+                            <option value="All">All Statuses</option>
+                            <option value="Pending">Pending</option>
+                            <option value="In Progress">In Progress</option>
+                            <option value="Completed">Completed</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label>Priority Filter:</label>
+                        <select id="filter-priority">
+                            <option value="All">All Priorities</option>
+                            <option value="High">High</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Low">Low</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="tasks-grid" class="tasks-grid"></div>
+            </section>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
